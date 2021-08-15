@@ -1,47 +1,96 @@
-<!doctype html>
-<html lang="en">
-  <head>
-   <title>Payment Cart</title>
-   <link rel="icon" href="inde1.png" type="image/png" sizes="16x16">
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+<title>audio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
+<audio id="myAudio"  >
+  <source src="audio.mp3" disabled='disabled' type="audio/ogg">
+  <source src="audio.ogg" disabled='disabled' type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+ <div class="ok"></div>
+<p>Click the buttons to play or pause the audio.</p>
 
-   
+<button class="on" onclick="playAudio()" type="button">Play Audio</button>
+ 
+
+<form action="audio.php" method="POST">
+Name:<br/><input type="name" placeholder="Please enter your name" name="name">
+<br/>
+audio to text<br/><textarea style="height:100px; width:100%" name="text">kkk</textarea><br/>
+<input type="submit" name="submit" value="submit">
+</form>
+under construction
+go here and compare 
+https://www.youtube.com/watch?v=Dx3AqaKW8UU
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+var x = document.getElementById("myAudio"); 
+
 	
-  </head>
-  <body>
-   <section class="container-fluid payment-cart">
-    <div class="row mx-auto">
-        <div class="col-12 col-sm-12">
-            <div class="header pt-3"><img src="inde1.png" class=    "image1 d-block mx-auto w-75 pt-5 mt-5" alt="image">
-                <h1 class="text-center pt-1">
-				  <b>Payment Request</b>
-				</h1>
-            </div>
-            <div class="main pt-5">
-                <p class="pb-3">For: <b>logo design contet prize</b>
-				</p>
-                <p class="pb-3">By: <b>dididi cyck</b>
-                </p>
-                <p class="pb-3">Amount: <b>256.07 USD</b>
-                </p><p class="pb-1">Equivalent to: 211 EUR* 
-                </p>
-				<p class="pb-1">*currency conversion fee may apply</p>
-            </div>
-            <div class="footer">
-			   <button type="button" class="btn btn-light button d-block  mx-auto">Proceed</button>
-           </div>
-        </div>
-    </div>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
+function playAudio() { 
+var dur = Number(x.duration);
+var html="";
+for(i=0; i<dur; i++){
+	 html+= "<button class='loo' style='margin:5px' target='"+i+"'>"+i+"s</button>";
+	
+	}
+	var htmo = "<div style='overflow:scroll; height:100px'>"+html+"</div>"; 
+	$(".ok").html(htmo);
+	$(".loo").on('click',function(){
+	let target=Number($(this).attr('target'));
+	x.currentTime=target;
+		x.play();
+	 let ki = x;
+	 let ti= target+4;
+	 let ol = "";
+setInterval(pub,1);
+ function pub(){
+	 
+	 var one  =ki.currentTime;;
+	 if(ol==""){ 
+	 if(one>ti){
+	ki.pause();
+	
+	
+	ol=1;
+	 }
+ }	}
+		
+		
+	});
+	$(".on").hide();
+//x.currentTime = 0;
+x.play();
 
+    let ok ="";
+ let kl = x;
+setInterval(pub,1);
+ function pub(){
+	
+	 var one  =kl.currentTime;
+	 if(ok==""){ 
+	 if(one>4){
+	kl.pause();
+	
+	 ok =1;
+	 
+	 
+	 }
+	 
+	 }
+ }
+}
 
-  </body>
+function pauseAudio() { 
+  x.pause(); 
+  
+} 
+</script>
+
+</body>
 </html>
